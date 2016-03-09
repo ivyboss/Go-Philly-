@@ -1,0 +1,21 @@
+<!-- Title for header bar (refer to www/index.html) the bar is hidden-->
+<ion-view title="Gocheap" ng-controller="MapCtrl">
+
+    <ion-content class="has-header gem-ion-content">
+        <div id="map" data-tap-disabled="true"></div>
+        <form name="testForm" novalidate ng-submit="submit()">
+        <div class="list">
+          <label class="item item-input">
+            <input placeholder="From" name="to" id="start-location" ng-required="true" ng-change="location.start" ng-model="location.start" type="text">
+          </label>
+          <label class="item item-input">
+            <input name="from" ng-model="location.end" ng-required="true" type="text" placeholder="To">
+          </label>
+          <label class="item">
+            <button ng-disabled="testForm.$invalid" class="button button-block button-positive" ng-click="submitLocations()">Submit</button>
+          </label>
+        </div>
+        </form>
+    </ion-content>
+</ion-view>
+

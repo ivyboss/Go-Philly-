@@ -1,0 +1,37 @@
+<!-- Title for the ion view -->
+<ion-view title="Results">
+  <ion-content class="has-header gem-ion-content">
+    <label class="item item-input row">
+      <div class="input-label col">
+        Sort by
+      </div>
+      <ion-radio ng-model="choice" value="compareDuration" class="col" 
+        checked>
+        <!-- <i class="icon ion-ios-stopwatch-outline"></i>-->
+        <img ng-src="img/time2.png" class="gem-circle sortby-time">
+      </ion-radio>
+      <ion-radio ng-model="choice" value="compareDistance" class="col">
+        <img ng-src="img/distance3.png" class="sortby-distance">
+      </ion-radio>
+      <ion-radio ng-model="choice" value="comparePrice" class="col">
+        <img ng-src="img/cost.png" class="sortby-cost">
+      </ion-radio>
+    </label>
+    <!-- standard small heading title -->
+    <div class="label-title">{{datas.length}} results found from {{startLocation}} to {{endLocation}}</div>
+    <!-- end title -->
+    <div class="item item-avatar item-button-right" ng-repeat="data in datas | orderBy: choice">
+      <!-- thumb image -->
+      <img ng-src="img/{{data.image}}" class="gem-circle">
+      <!-- Name -->
+      <h2>{{data.name}}</h2>
+      <!-- some text -->
+      <p class="list-item"><span ng-show='data.price'>Price: {{data.price}} | </span>Duration: {{data.duration}} | Distance: {{data.distance}}</p>
+      <!-- icon and status -->
+      <div ng-click='map(data)' class="button-list button button-small button-balanced"><i class="icon ion-ios-arrow-forward"></i></div>
+    </div>  
+  </ion-content>
+  <!-- ======================
+  END MAIN CONTENT SECTION
+  ====================== -->
+</ion-view>
